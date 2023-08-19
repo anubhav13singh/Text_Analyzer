@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 ::-webkit-scrollbar-thumb{
   background: linear-gradient(90deg, rgba(27,186,213,1) 0%, rgba(2,205,247,1) 0%, rgba(17,17,224,0.6244604316546762) 48%, rgba(42,175,194,1) 100%);
 }
@@ -34,6 +35,9 @@ button:hover{
 span{
   font-weight: 700;
   font-size: 18px;
+}
+.menuitem{
+  height: max-content;
 }
 @media (max-width:600px) {
   button{

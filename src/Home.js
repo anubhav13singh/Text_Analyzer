@@ -36,7 +36,7 @@ function Home() {
         </Typography>
 
          <Box display='flex' alignItems='center' justifyContent='center' margin='20px'>
-            <textarea  className='textarea' cols={200} rows={20} value={text} onChange={(e) => setText(e.target.value)}> </textarea>
+            <textarea  className='textarea' cols={200} rows={10} value={text} onChange={(e) => setText(e.target.value)}> </textarea>
          </Box>   
          
       </Stack>
@@ -62,7 +62,7 @@ function Home() {
         </Typography>
 
         <Typography margin='1vw 2vw 0 2vw ' >
-          {text.length} <span>characters </span>,  {text.length == 0 ? 0 : text.trim().split(' ').length} <span>Words</span> <br/>
+          {text.length} <span>characters </span>,  {text.length === 0 ? 0 : text.trim().split(' ').length} <span>Words</span> <br/>
 
           {text.trim().length * 0.019 } <span>minutes to read</span>
         </Typography>
