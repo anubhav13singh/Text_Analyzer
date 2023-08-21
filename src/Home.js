@@ -1,32 +1,35 @@
 import React, { useState } from 'react'
 import { Box, Stack, Typography } from '@mui/material'
-import Alert from '@mui/material/Alert';
 
-function Home() {
-  const [text, setText] = useState('')
-  
+function Home({showAlert}) {
+  const [text, setText] = useState('');
+
   const handleUpperCase = () =>{
     let newText = text.toUpperCase();
     setText(newText);
-    <Alert severity="success">This is a success alert — check it out!</Alert>
+    showAlert("converted to uppercase!","success")
   }
 
   const handleLowerCase = () =>{
     let newText = text.toLowerCase();
     setText(newText);
+    showAlert("converted to lowercase","success")
   }
 
-  const handleCopy = () =>{
+  const handleCopy = () =>{ 
      navigator.clipboard.writeText(text);
+     showAlert("copied to clipboard","success")
   }
 
   const handleClearText = () =>{
     let newText = '';
     setText(newText);
+    showAlert("clear Text","success")
   }
   const handleExtraSpace = () =>{
     let newText = text.split(/[ ]+/)
     setText(newText.join(" "));
+    showAlert("extra spaces in the text area removed","success")
   }
   return (
     <>
@@ -57,14 +60,14 @@ function Home() {
         </Typography>
         
 
-        <Typography variant='h5' fontWeight='600' margin='2vw' >
+        <Typography variant='h5' fontWeight='600' margin={{xs:'2vw', md:'0.5vw 2vw'}} >
           Your text summary
         </Typography>
 
-        <Typography margin='1vw 2vw 0 2vw ' >
+        <Typography margin='0 2vw'>
           {text.length} <span>characters </span>,  {text.length === 0 ? 0 : text.trim().split(' ').length} <span>Words</span> <br/>
 
-          {text.trim().length * 0.019 } <span>minutes to read</span>
+          {(text.trim().length * 0.005).toFixed(2)} <span>minutes to read</span>
         </Typography>
     </>
   )
